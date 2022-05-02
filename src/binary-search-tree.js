@@ -9,27 +9,56 @@ const { NotImplementedError } = require('../extensions/index.js');
 class BinarySearchTree {
   constructor()
   {
-    let initialRoot = this.root
       this.initialRoot = null;
   }
   root() {
-    
- this.root = null
-    return this.root;
+    return this.initialRoot;
   }
 
-  add(data) {
-    
-  }
+  
+    add(data) {
+      this.initialRoot = addWithin(this.initialRoot, data);
+      function addWithin(node, data) {
+        if(!node) {
+          return new Node(data);
+        }
+  
+        if (node.data === data) {
+          return node;
+        }
+  
+        if (data < node.data) {
+          node.left = addWithin(node.left, data);
+        } else {
+          node.right = addWithin(node.right, data);
+        }
+        return node;
+        }
+      }
 
   has(data) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+    let node = this.initialRoot
+    while(node) {
+      if (node.data === data) {
+        return true
+      }
+      else {
+        return false
+      }
+    }
   }
 
   find(data) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+    let node = this.initialRoot
+    while(node) {
+      if (node.data === data) {
+        return node
+      }
+      else {
+        return null
+      }
+    }
+    
   }
 
   remove(data) {
@@ -38,11 +67,28 @@ class BinarySearchTree {
   }
 
   min() {
+    if (!this.initialRoot) {
+      return
+    }
+    let node = this.initialRoot
+    while(node.left) {
+      node = node.left 
+    }
+    return node.data
     
-  }
+}
+    
 
   max() {
-    
+   if (!this.initialRoot) {
+     return
+   }
+   let node = this.initialRoot
+   while(node.right) {
+     node = node.right
+
+   }
+   return node.data
 
 }
 }
