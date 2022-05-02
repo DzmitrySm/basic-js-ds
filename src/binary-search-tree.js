@@ -9,8 +9,8 @@ const { NotImplementedError } = require('../extensions/index.js');
 class BinarySearchTree {
   
   root() {
-    if (Node.root === null)
-      this.root = null 
+    this.root = null
+    return this.root;
   }
 
   add(data) {
