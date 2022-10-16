@@ -46,6 +46,8 @@ class BinarySearchTree {
         return false
       }
     }
+      
+
   }
 
   find(data) {
