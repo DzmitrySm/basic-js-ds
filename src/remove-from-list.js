@@ -25,9 +25,8 @@ const { NotImplementedError } = require('../extensions/index.js');
 function removeKFromList(l, k) {
 
 let current = l
-if(current.value === k) {
+if(current.value === k && current.next) {
   current = current.next
-
 }
 while(current.next) {
   if(current.next.value === k) {
@@ -39,8 +38,8 @@ while(current.next) {
 
 }
 
-//console.log(l)
-//console.log(k)
+console.log(l)
+console.log(k)
 return l
 
 }

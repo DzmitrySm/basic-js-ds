@@ -64,8 +64,7 @@ class BinarySearchTree {
   }
 
   remove(data) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+    
   }
 
   min() {
